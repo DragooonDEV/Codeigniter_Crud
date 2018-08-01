@@ -1,12 +1,6 @@
-Deny from all
-Allow from 127.0.0.1 ::1 localhost
-Allow from .htaccess
 
-<IfModule mod_rewrite.c>
-RewriteEngine On
-RewriteBase /Codeigniter/
-RewriteRule ^index\.php$ - [L]
-RewriteCond %{REQUEST_FILENAME} !-f
-RewriteCond %{REQUEST_FILENAME} !-d
-RewriteRule . /Codeigniter/index.php [L]
-</IfModule>
+    RewriteEngine On
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)$ /codeigniter/index.php/$1 [L]
+    ErrorDocument 404 /codeigniter/index.php
